@@ -539,26 +539,6 @@ public class Scanner {
                     if(c=='+' || c== '-' || Character.isDigit(c)){
                         estado=26;
                         lexema+=c;
-                    } else{
-                        
-                        //Si no, tomamos a E o e como identificador
-                        lexema=lexema.substring(0, lexema.length()-1); //Le quitamos E de la cadena de número
-                        
-                        //Verifica si el número es decimal para mostrarlo como Double
-                        if(lexema.contains(".")){
-                             Token t23= new Token(TipoToken.NUMBER, lexema, Double.valueOf(lexema));
-                             tokens.add(t23);
-                             estado=0;
-                             lexema="";
-                             i-=2;
-                        }else{ //Si no, lo muestra como Long
-                             Token t23= new Token(TipoToken.NUMBER, lexema, Long.valueOf(lexema));
-                             tokens.add(t23);
-                             estado=0;
-                             lexema="";
-                             i-=2; 
-                        }
-
                     }
                     
                 break;
